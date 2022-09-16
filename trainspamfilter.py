@@ -17,7 +17,7 @@ def trainspamfilter(xTr,yTr):
     #
     # Consider optimizing the input parameters for your loss and GD!
 
-    f = lambda w : hinge(w,xTr,yTr,1)
-    w_trained = grdescent(f,np.zeros((xTr.shape[0],1)),1e-09,1000)
+    f = lambda w : logistic(w,xTr,yTr)
+    w_trained = grdescent(f,np.zeros((xTr.shape[0],1)),1,10000)
     io.savemat('w_trained.mat', mdict={'w': w_trained})
     return w_trained

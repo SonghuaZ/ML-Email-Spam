@@ -21,6 +21,7 @@ def checkgradHingeAndRidge(f, X, e, x, y,lambdaa):
     y0,dy = f(X,x,y,lambdaa)   # get the partial derivatives dy
     dh = np.zeros((len(X),1))
     for j in range(len(X)):
+
         dx = np.zeros((len(X),1))
         dx[j] = dx[j] + e                            # perturb a single dimension
         y2,dy2 = f(X+dx,x,y,lambdaa)
@@ -29,8 +30,8 @@ def checkgradHingeAndRidge(f, X, e, x, y,lambdaa):
         dh[j] = (y2 - y1)/(2*e)
 
     # dh (the gradient calculated by the finite difference method) should be almost the same as dy (the gradient calculated by your function)
-    # print("dh:", dh)
-    # print("dy:", dy)
+        print("dh:", dh)
+        print("dy:", dy)
 
     d = np.linalg.norm(dh-dy)/np.linalg.norm(dh+dy);       # return norm of diff divided by norm of sum
     return d

@@ -16,8 +16,8 @@ def vis_rocs():
         Y = data['Y']
         xTr,xTv,yTr,yTv = valsplit(X,Y)
 
-        MAXITER=100;
-        STEPSIZE=1e-01;
+        MAXITER=10000;
+        STEPSIZE=1;
 
 
 

@@ -1,12 +1,13 @@
+from scipy import io
+
 from spamfilter import spamfilter
 from trainspamfilter import trainspamfilter
 from valsplit import valsplit
 
-from scipy import io
 import numpy as np
 
 # load the data:
-data = io.loadmat('data/data_train_default.mat')
+data = io.loadmat('/Users/shawnzheng/Desktop/Machine Learning/project1-project_1_songhua_zheng_-_nianen_li-main/data/data_train_default.mat')
 X = data['X']
 Y = data['Y']
 

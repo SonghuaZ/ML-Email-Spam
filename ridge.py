@@ -1,21 +1,11 @@
-
 import numpy as np
 
 
-def ridge(w,xTr,yTr,lambdaa):
-#
-# INPUT:
-# w weight vector (default w=0)
-# xTr:dxn matrix (each column is an input vector)
-# yTr:1xn matrix (each entry is a label)
-# lambdaa: regression constant
-#
-# OUTPUTS:
-# loss = the total loss obtained with w on xTr and yTr
-# gradient = the gradient at w
-#
-# [d,n]=size(xTr);
+def ridge(w, xTr, yTr, lambdaa):
+    loss = ((w.T.dot(xTr) - yTr).dot((w.T.dot(xTr) - yTr).T) +
+            (w.T.dot(w) * lambdaa))
 
-    # YOUR CODE HERE
+    gradient = (((xTr.dot(xTr.T)) * 2).dot(w) -
+                (xTr.dot(yTr.T) * 2) + (lambdaa * w * 2))
 
-    return loss,gradient
+    return loss, gradient
